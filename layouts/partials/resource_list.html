@@ -1,0 +1,18 @@
+<!-- ARTICLES -->
+<div class="articles">
+  {{ range (.Paginate ((.Site.GetPage "section" "resources").Pages)).Pages }}
+    <article>
+      <h2>
+        <a href="{{ .Permalink }}">{{ .Title }}</a>
+      </h2>
+      <div class="summary">
+        {{.Summary}}
+      </div>
+      <div class="article_button">
+        <a href="{{ .Permalink }}">
+          Leer artículo
+        </a>
+      </div>
+    </article>
+  {{ end }}
+</div>

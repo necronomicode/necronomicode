@@ -1,0 +1,27 @@
+{{ define "styles" }}
+  {{ partial "post.css" . }}
+{{ end }}
+
+{{ define "main" }}
+  <section style="width: calc(100vw - 2em); max-width: 75ch; margin: 0 auto;">
+    <div style="margin-bottom: 1em; color: var(--primary-color);">
+      <h1 style="text-align: left"> {{ .Title }}</h1>
+      {{ if eq .Type "posts" }}
+        <div class="subtitle">
+          {{ .Date.Format "January 2, 2006"}}
+          {{ range (.GetTerms "categories") }}
+            <a href="{{ .Permalink }}" style="border-left: 1px solid var(--primary-color); padding-left: 0.4em;">{{ .LinkTitle }}</a>
+          {{ end }}
+        </div>
+        {{ with (.GetTerms "tags") }}
+          <div class="tag_menu">
+            {{ range $i, $t := . }}{{ if $i }}, {{ end }}<a href="{{ $t.Permalink }}">{{ $t.LinkTitle }}</a>{{ end }}
+          </div>
+        {{ end }}
+      {{ end }}
+    </div>
+    <div class="article_text" style="font-family: 'Open Sans', sans-serif; color: var(--white-color);">
+      {{ .Content }}
+    </div>
+  </section>
+{{ end }}

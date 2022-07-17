@@ -1,0 +1,13 @@
+<style>
+  .content > * {
+    margin-bottom: .6em;
+  }
+
+  .kofi{
+    text-align: center;
+  }
+
+  .content a:hover{
+    text-decoration: none;
+  }
+</style>

@@ -1,0 +1,75 @@
+{{ $rss_title := "" }}
+
+{{ if eq .Section "categories" }}
+    {{ $rss_title = "Necronomicode_Category:" }}
+{{ else if eq .Section "tags" }}
+    {{ $rss_title = "Necronomicode_Tag:" }}
+{{ end }}
+
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>{{ .Site.Title }} | {{ if eq .Title "Necronomicode" }} Homepage {{ else }} {{ .Title }} {{ end }}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/images/logo-profile.png">
+    {{ if or (eq .Kind "home") (eq .Kind "term") }}
+      <link rel="alternate" type="application/rss+xml" href="{{ .Permalink }}index.xml" title="{{ $rss_title }} {{ .Title }}">
+    {{ end }}
+    {{ partial "general.css" . }}
+    {{ block "styles" . }}{{ end }}
+  </head>
+  <body id="site" style="background-color: var(--secondary-color); position: relative; padding-bottom: 3em; min-height: calc(100vh - 3em);">
+    <header style="display: flex; align-items: center;">
+      <div style="max-width: 400px; margin: 0 auto; display: block;">
+        <a href="{{ .Site.BaseURL }}">
+          <img src="/images/logo-transparent-full.png" alt="Logo de necronomicode" style="width: 100%;">
+        </a>
+      </div>
+      <div id="menu_btn" class="menu_btn" style="justify-content: center; align-items: center; flex-direction: column; width: 40px; height: 40px; cursor: pointer; z-index: 2;">
+        <div class="menu_bar" style="position: relative; margin-right: 1.5em;"></div>
+      </div>
+    </header>
+    <nav id="nav_menu" style="font-weight: 700; z-index: 1; margin-bottom: 1em; border-bottom: 1px solid var(--primary-color); font-family: 'Roboto', sans-serif;">
+      <ul style="list-style: none; text-decoration: none; margin: 0 auto; max-width: 800px; display: flex; align-items: center; justify-content: space-around;">
+        <li>
+          <a href="/">Home</a>
+        </li>
+        <li>
+          <a href="/categories/">Categorías</a>
+        </li>
+        <li>
+          <a href="/tags/">Tags</a>
+        </li>
+        <li>
+          <a href="/resources/">Recursos</a>
+        </li>
+        <li>
+          <a href="/support/">Apóyame</a>
+        </li>
+        <li>
+          <a href="/about/">Sobre mí</a>
+        </li>
+      </ul>
+    </nav>
+    <main style="padding: 1em; font-family: 'Roboto', sans-serif;">
+      {{ block "main" . }}{{ end }}
+    </main>
+    <footer style="width: 100%; bottom: 0; position: absolute; background-color: black; color: white; text-align: center; padding: 1em 0 .5em 0; font-family: 'Roboto', sans-serif;">
+      <p style="font-weight: 700; max-width: 100%;">Page made by <a href="https://github.com/0xGrimm" target="_blank">Grimm</a></p>
+    </footer>
+    <script>
+      const menu_btn = document.getElementById('menu_btn');
+      const nav_menu = document.getElementById('nav_menu');
+      const body = document.getElementById('site');
+      menu_btn.addEventListener('click', ()=>{
+        menu_btn.firstElementChild.classList.toggle('menu_active');
+        nav_menu.classList.toggle('menu_show');
+        body.classList.toggle('block_scrolling');
+      });
+    </script>
+  </body>
+</html>

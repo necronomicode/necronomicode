@@ -1,0 +1,18 @@
+{{ define "styles" }}
+  {{ partial "terms.css" . }}
+{{ end }}
+
+{{ define "main" }}
+<div style="margin: 0 auto; max-width: 1200px; text-align: center;">
+  <h1>{{ .Title }}</h1>
+  <ul class="terms" style="display: flex; flex-flow: row wrap; list-style: none; max-width: 100%;">
+    {{ range .Data.Pages }}
+    <li style="font-size: 1.5em; font-weight: 700; line-height: 1.7;">
+        <a href="{{ .Permalink }}">
+          <span class="tag_name">{{ .Title }}</span>
+        </a>
+    </li>
+    {{ end }}
+  </ul>
+</div>
+{{ end }}

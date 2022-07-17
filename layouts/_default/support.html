@@ -1,0 +1,10 @@
+{{ define "styles" }}
+  {{ partial "page.css" . }}
+{{ end }}
+
+{{ define "main" }}
+    <h1>{{ .Title }}</h1>
+    <div class="content">
+      {{ .Content }}
+    </div>
+{{ end }}

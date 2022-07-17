@@ -1,0 +1,15 @@
+baseURL = 'https://necronomicode.dev/'
+languageCode = 'es'
+title = 'Necronomicode'
+
+removePathAccents = true
+
+paginate = 10
+paginatePath = ''
+
+[outputs]
+  home = ['HTML', 'RSS']
+
+[permalinks]
+  posts = ":title"
+  resources = ":title"

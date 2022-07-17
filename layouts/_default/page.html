@@ -1,0 +1,10 @@
+{{ define "styles" }}
+  {{ partial "page.css" . }}
+{{ end }}
+
+{{ define "main" }}
+    <h1>{{ .Title }}</h1>
+    <div class="content" style="color: var(--white-color); font-size: 1.5em; margin: 0 auto; max-width: 75ch; font-family: 'Open Sans', sans-serif;">
+      {{ .Content }}
+    </div>
+{{ end }}

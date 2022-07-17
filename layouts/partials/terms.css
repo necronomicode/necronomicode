@@ -1,0 +1,24 @@
+<style>
+/**/
+.terms li{
+  width: 25%;
+}
+
+@media only screen and (max-width: 1200px) {
+  .terms li{
+    width: 33.3333%;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .terms li{
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .terms li{
+    width: 100%;
+  }
+}
+</style>

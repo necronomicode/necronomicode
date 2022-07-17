@@ -1,0 +1,85 @@
+<style>
+.article_text{
+  font-size: 1.5em;
+}
+
+.article_text a:hover{
+  text-decoration: none;
+}
+
+.article_text > * {
+  margin-bottom: .6em;
+}
+
+.article_text:last-child {
+  margin-bottom: 0;
+}
+
+.article_text h2,
+.article_text h3,
+.article_text h4{
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+.article_text h2{
+  font-size: 2em;
+}
+
+.article_text h3{
+  font-size: 1.7em;
+}
+
+.article_text h4{
+  font-size: 1.5em;
+}
+
+.article_text ul,
+.article_text ol{
+  list-style-position: inside;
+}
+
+.article_text ul li::before{
+  content: '';
+  margin-right: -15px;
+}
+
+.article_text img{
+  width: 100%;
+  height: auto;
+}
+
+.highlight{
+  font-size: .75em;
+  line-height: 1.8;
+}
+
+.highlight pre{
+  overflow: auto;
+  padding: 1.2em 0;
+}
+
+.highlight code >span::before,
+.highlight code >span::after{
+  content: "\0020\0020";
+}
+
+.shell code > span::before{
+  content: "\0020\0020$\0020";
+}
+
+@media only screen and (max-width: 500px) {
+
+  .article_text h2{
+    font-size: 1.7em;
+  }
+
+  .article_text h3{
+    font-size: 1.5em;
+  }
+
+  .article_text h4{
+    font-size: 1.3em;
+  }
+}
+</style>
